@@ -1,9 +1,18 @@
 """Задача 8. Анализ заказов (множества)."""
 
-# Материалы трёх подрядчиков
-contractor_1 = {"Кирпич", "Цемент", "Песок", "Арматура"}
-contractor_2 = {"Цемент", "Песок", "Бетон", "Щебень"}
-contractor_3 = {"Песок", "Цемент", "Гипс", "Кирпич"}
+
+def read_materials_set(contractor_number: int) -> set[str]:
+    """Считывает материалы подрядчика через запятую и возвращает множество."""
+    raw = input(
+        f"Введите материалы подрядчика #{contractor_number} через запятую: "
+    ).strip()
+    return {item.strip() for item in raw.split(",") if item.strip()}
+
+
+# Материалы трёх подрядчиков (ввод с консоли)
+contractor_1 = read_materials_set(1)
+contractor_2 = read_materials_set(2)
+contractor_3 = read_materials_set(3)
 
 # Все уникальные
 all_unique = contractor_1 | contractor_2 | contractor_3

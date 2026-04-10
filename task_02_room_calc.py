@@ -1,16 +1,23 @@
-# Updated task_02_room_calc.py
+"""Задача 2. Параметры помещения."""
 
-# Function to calculate the area and perimeter of a room based on user input
+# Ввод размеров помещения (метры)
+length = float(input("Введите длину помещения (м): "))
+width = float(input("Введите ширину помещения (м): "))
+height = float(input("Введите высоту помещения (м): "))
 
-def calculate_room():
-    length = float(input('Enter the length of the room: '))
-    width = float(input('Enter the width of the room: '))
-    area = length * width
-    perimeter = 2 * (length + width)
+# Константа стоимости покраски (руб/м²)
+paint_price_per_m2 = 125
 
-    print(f'The area of the room is: {area}')
-    print(f'The perimeter of the room is: {perimeter}')
+# Вычисления
+floor_area = length * width
+wall_area = 2 * (length + width) * height
+volume = length * width * height
+paint_cost = wall_area * paint_price_per_m2
 
-# Main function
-if __name__ == '__main__':
-    calculate_room()
+# Лаконичный вывод
+print("=== ПАРАМЕТРЫ ПОМЕЩЕНИЯ ===")
+print(f"Размеры: {length} x {width} x {height} м")
+print(f"Площадь пола: {floor_area:.2f} м²")
+print(f"Площадь стен: {wall_area:.2f} м²")
+print(f"Объём: {volume:.2f} м³")
+print(f"Стоимость покраски стен: {paint_cost:.2f} руб")
